@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -46,28 +47,8 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * Determine whether this user is a "super" user.
-     *
-     * Logic: if the user has an `is_super` attribute use it. Otherwise
-     * fall back to matching the env SUPER_EMAIL (convenience for projects
-     * without a dedicated column).
-     */
-    public function isSuper(): bool
+    public function chirps(): HasMany
     {
-        // If an `is_super` attribute exists on the model (DB column), use it.
-        $attr = $this->getAttribute('is_super');
-
-        if ($attr !== null) {
-            return (bool) $attr;
-        }
-
-        // Otherwise, check SUPER_EMAIL environment variable as a fallback.
-        $superEmail = env('SUPER_EMAIL');
-        if ($superEmail && $this->email === $superEmail) {
-            return true;
-        }
-
-        return false;
+        return $this->hasMany(Chirp::class);
     }
 }
