@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libzip-dev \
     zip \
-    && docker-php-ext-install pdo pdo_mysql mbstring zip
+    && docker-php-ext-install pdo_pgsql pgsql mbstring zip
 
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -28,11 +28,11 @@ RUN php artisan config:clear && \
     php artisan route:clear && \
     php artisan view:clear
 
-# Copy Nginx config file
+# Copy Nginx config
 COPY nginx.conf /etc/nginx/sites-enabled/default
 
-# Expose port for Render to detect
+# Expose Render port
 EXPOSE 80
 
-# Start nginx and php-fpm
-CMD service nginx start && php-fpm
+# Run migrations automatically and start services
+CMD php artisan migrate --force && service nginx start && php-fpm
