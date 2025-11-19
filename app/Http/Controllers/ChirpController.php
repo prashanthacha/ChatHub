@@ -20,6 +20,16 @@ class ChirpController extends Controller
 
         return view('home', ['chirps' => $chirps]);
     }
+    //   public function index()
+    // {
+    //     $chirps = Chirp::where('user_id', auth()->id())
+    //         ->latest()
+    //         ->get();
+
+    //     return view('home', ['chirps' => $chirps]);
+    // }
+//     where('user_id', auth()->id())
+// This filters chirps to only the ones created by the currently logged-in user.
 
     /**
      * Show the form for creating a new resource.

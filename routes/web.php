@@ -23,7 +23,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', Register::class);
 });
 
-// 🔐 Login Routes
+
 Route::middleware('guest')->group(function () {
     Route::view('/login', 'auth.login')->name('login');
     Route::post('/login', Login::class);  // ✅ This now points to your controller correctly

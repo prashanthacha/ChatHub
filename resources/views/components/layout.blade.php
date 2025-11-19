@@ -7,7 +7,9 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 min-h-screen flex flex-col font-sans selection:bg-indigo-200 selection:text-indigo-900">
+    
 
     <!-- 🌟 Navbar -->
     <nav class="flex justify-between items-center bg-white/90 backdrop-blur-md border-b border-gray-200 px-6 py-4 shadow-sm">
