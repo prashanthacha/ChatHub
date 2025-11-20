@@ -5,7 +5,7 @@
     </x-slot:title>
 
     <div class="max-w-2xl mx-auto">
-        <h1 class="text-3xl font-bold mt-8">Latest Chirps</h1>
+        <h1 class="text-3xl font-bold mt-8">Latest Messages</h1>
 
         <!-- Chirp Form -->
         
@@ -33,7 +33,7 @@
 
             <div class="mt-4 flex items-center justify-end">
                 <button type="submit" class="bg-black text-white font-semibold text-lg px-5 py-1 rounded-xl ">
-                    Chirp
+                    Send Now
                 </button>
             </div>
         </form>

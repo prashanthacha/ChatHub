@@ -9,37 +9,36 @@
 </head>
 
 <body class="bg-gray-100 min-h-screen flex flex-col font-sans selection:bg-indigo-200 selection:text-indigo-900">
-    
+
 
     <!-- 🌟 Navbar -->
     <nav class="flex justify-between items-center bg-white/90 backdrop-blur-md border-b border-gray-200 px-6 py-4 shadow-sm">
         <div class="flex items-center space-x-2 text-xl font-bold text-indigo-600 hover:text-indigo-700 transition">
-            <span>🐦</span>
-            <span>Chirper</span>
+            <span>
+                <img src="{{ asset('images/chat.png') }}" alt="ChatHub" style="width:50px; height:50px;">
+            </span>
+
+            <span>ChatHub</span>
         </div>
 
         <div class="navbar-end flex items-center gap-3">
             @auth
-                <span class="text-sm font-medium text-gray-700">{{ auth()->user()->name }}</span>
+            <span class="text-sm font-medium text-gray-700">{{ auth()->user()->name }}</span>
 
-                <form method="POST" action="/logout" class="inline">
-                    @csrf
-                    <button 
-                        type="submit" 
-                        class="px-4 py-1.5 text-sm font-semibold text-white bg-gradient-to-r from-red-500 to-pink-500 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200">
-                        Logout
-                    </button>
-                </form>
+            <form method="POST" action="/logout" class="inline">
+                @csrf
+                <button type="submit" class="px-4 py-1.5 text-sm font-semibold text-white bg-gradient-to-r from-red-500 to-pink-500 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200">
+                    Logout
+                </button>
+            </form>
             @else
-                <a href="/login" 
-                   class="px-4 py-1.5 text-sm font-semibold text-indigo-600 border border-indigo-500 rounded-full hover:bg-indigo-600 hover:text-white shadow-sm hover:shadow-md transition-all duration-200">
-                    Sign In
-                </a>
+            <a href="/login" class="px-4 py-1.5 text-sm font-semibold text-indigo-600 border border-indigo-500 rounded-full hover:bg-indigo-600 hover:text-white shadow-sm hover:shadow-md transition-all duration-200">
+                Sign In
+            </a>
 
-                <a href="{{ route('register') }}" 
-                   class="px-4 py-1.5 text-sm font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200">
-                    Sign Up
-                </a>
+            <a href="{{ route('register') }}" class="px-4 py-1.5 text-sm font-semibold text-white bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200">
+                Sign Up
+            </a>
             @endauth
         </div>
     </nav>
@@ -59,11 +58,25 @@
         .animate-fade-out {
             animation: fadeOut 3s ease-in-out forwards;
         }
+
         @keyframes fadeOut {
-            0% { opacity: 1; transform: translateY(0); }
-            80% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-20px); display: none; }
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            80% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-20px);
+                display: none;
+            }
         }
+
     </style>
     @endif
 
@@ -76,7 +89,7 @@
     <footer class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-6 mt-8 shadow-inner">
         <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
             <p class="text-sm">
-                © 2025 <span class="font-semibold text-white/90">Chirper</span> — Built with 
+                © 2025 <span class="font-semibold text-white/90">ChatHub</span> — Built with
                 <span class="text-yellow-300 font-semibold">Laravel</span>
             </p>
 
