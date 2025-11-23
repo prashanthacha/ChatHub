@@ -47,13 +47,13 @@ class ChirpController extends Controller
         $validated = $request->validate([
             'message' => 'required|string|max:255',
         ], [
-            'message.required' => 'Please write something to chirp!',
+            'message.required' => 'Please write something to Chathub!',
             'message.max' => 'Chirps must be 255 characters or less.',
         ]);
 
         auth()->user()->chirps()->create($validated);
 
-        return redirect('/')->with('success', 'Your chirp has been posted!');
+        return redirect('/')->with('success', 'Your Message has been posted!');
     }
 
     /**
@@ -93,7 +93,7 @@ class ChirpController extends Controller
         // Update
         $chirp->update($validated);
 
-        return redirect('/')->with('success', 'Chirp updated!');
+        return redirect('/')->with('success', 'Message updated!');
     }
 
     /**
@@ -107,6 +107,6 @@ class ChirpController extends Controller
 
         $chirp->delete();
 
-        return redirect('/')->with('success', 'Chirp deleted!');
+        return redirect('/')->with('success', 'Message deleted!');
     }
 }

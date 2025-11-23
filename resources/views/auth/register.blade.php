@@ -3,10 +3,10 @@
         Register
     </x-slot:title>
 
-    <!-- Light clean background -->
+    
     <div class="min-h-screen flex items-center justify-center bg-gray-100 p-6">
 
-        <!-- White card -->
+        
         <div class="w-full max-w-md bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
             <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">
                 Create Your Account

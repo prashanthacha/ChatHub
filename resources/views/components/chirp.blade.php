@@ -36,7 +36,7 @@
 
                     @can('update', $chirp)
                         <div class="flex gap-2">
-                            <!-- ✨ Edit Button -->
+                            <!--Edit Button -->
                             <a href="/chirps/{{ $chirp->id }}/edit"
                                 class="btn btn-xs px-3 py-1 text-sm font-semibold rounded-full text-white
                                        bg-gradient-to-r from-indigo-500 to-purple-500
@@ -44,12 +44,12 @@
                                 Edit
                             </a>
 
-                            <!-- 🗑️ Delete Button -->
+                            <!-- Delete Button -->
                             <form method="POST" action="/chirps/{{ $chirp->id }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
-                                    onclick="return confirm('Are you sure you want to delete this chirp?')"
+                                    onclick="return confirm('Are you sure you want to delete this Message ?')"
                                     class="btn btn-xs px-3 py-1 text-sm font-semibold rounded-full text-white
                                            bg-gradient-to-r from-red-500 to-pink-500
                                            shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ isset($title)?$title.' - Chirper':'Chirper' }}</title>
+    <title>{{ isset($title)?$title.'-ChatHub ':'ChatHub' }}</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -11,7 +11,7 @@
 <body class="bg-gray-100 min-h-screen flex flex-col font-sans selection:bg-indigo-200 selection:text-indigo-900">
 
 
-    <!-- 🌟 Navbar -->
+    <!-- Navbar -->
     <nav class="flex justify-between items-center bg-white/90 backdrop-blur-md border-b border-gray-200 px-6 py-4 shadow-sm">
         <div class="flex items-center space-x-2 text-xl font-bold text-indigo-600 hover:text-indigo-700 transition">
             <span>
@@ -23,7 +23,8 @@
 
         <div class="navbar-end flex items-center gap-3">
             @auth
-            <span class="text-sm font-medium text-gray-700">{{ auth()->user()->name }}</span>
+            <span class="text-sm font-small-bold text-black-800">{{ auth()->user()->name }}</span>
+            {{-- <span class="text-sm font-large text-black-700">{{ auth()->user()->email }}</span> --}}
 
             <form method="POST" action="/logout" class="inline">
                 @csrf
@@ -80,12 +81,12 @@
     </style>
     @endif
 
-    <!-- 💬 Main Content -->
+    <!--  Main Content -->
     <main class="flex-grow flex justify-center items-center px-4 py-6">
         {{ $slot }}
     </main>
 
-    <!-- 🌈 New Footer -->
+    <!-- New Footer -->
     <footer class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-6 mt-8 shadow-inner">
         <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
             <p class="text-sm">

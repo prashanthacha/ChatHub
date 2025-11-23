@@ -6,10 +6,10 @@ use App\Http\Controllers\Auth\Register;
 use App\Http\Controllers\Auth\Login;
 use App\Http\Controllers\Auth\Logout;
 
-// 🏠 Home Route (Public)
+
 Route::get('/', [ChirpController::class, 'index'])->name('home');
 
-// 🐦 Chirp Routes (Protected)
+
 Route::middleware('auth')->group(function () {
     Route::post('/chirps', [ChirpController::class, 'store'])->name('chirps.store');
     Route::get('/chirps/{chirp}/edit', [ChirpController::class, 'edit'])->name('chirps.edit');
@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/chirps/{chirp}', [ChirpController::class, 'destroy'])->name('chirps.destroy');
 });
 
-// 👤 Registration Routes
+
 Route::middleware('guest')->group(function () {
     Route::view('/register', 'auth.register')->name('register');
     Route::post('/register', Register::class);
@@ -26,10 +26,10 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('guest')->group(function () {
     Route::view('/login', 'auth.login')->name('login');
-    Route::post('/login', Login::class);  // ✅ This now points to your controller correctly
+    Route::post('/login', Login::class); 
 });
 
-// 🚪 Logout Route
+
 Route::post('/logout', Logout::class)
     ->middleware('auth')
     ->name('logout');

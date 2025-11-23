@@ -9,7 +9,7 @@
         <!-- Simple white card -->
         <div class="w-full max-w-md bg-white rounded-2xl shadow-lg border border-gray-200 p-8">
             <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">
-                Welcome Back 👋
+                Welcome Back
             </h1>
 
             <form method="POST" action="/login" class="space-y-6">
